@@ -15,6 +15,6 @@ int execute(char **args);
 int check_buff(char *buff);
 char **split(char *str, char *sep);
 
-extern char **environment;
+extern char **environ;
 
 #endif

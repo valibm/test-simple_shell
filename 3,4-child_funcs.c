@@ -5,7 +5,6 @@
  * @command: cmd
  * Return: Returns path if succesfull, NULL otherwise.
  */
-
 char *find_path(char *command)
 {
 	char *path = _getenv("PATH"), *concatanated = NULL,*copied;
