@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * execute - It executes command path.
  * @args: Cmd arguments.
@@ -16,7 +18,7 @@ int execute(char **args)
 	{
 		wait(&stat);
 		if (WIFEXITED(stat))
-			status = WEXITSTATUS(stat);
+			stat = WEXITSTATUS(stat);
 	}
 
 	return (stat);

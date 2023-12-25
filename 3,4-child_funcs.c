@@ -16,10 +16,10 @@ char *find_path(char *command)
 	if (stat(command, &info) == 0)
 		return (command);
 
-	copied = malloc(_strlen(path) + 1);
+	copied = malloc(strlen(path) + 1);
 
-	copied = strcpy(path_cpy, path);
-	splitted = split(path_cpy, ":");
+	copied = strcpy(copied, path);
+	splitted = split(copied, ":");
 
 	while (splitted[i])
 	{
@@ -64,4 +64,33 @@ int check_buff(char *buff)
 			return (0);
 	}
 	return (1);
+}
+
+/**
+ * _split - It tokenizes the input string based on the specified delimiter.
+ * @str: Input string.
+ * @sep: Separator.
+ * Return: Tokenized string.
+ */
+char **split(char *str, char *sep)
+{
+	char *aux, **split_str;
+	int i = 0;
+
+	aux = strtok(str, sep);
+	split_str = calloc(100, sizeof(char *));
+
+	if (!split_str)
+	{
+		free(split_str);
+		return (NULL);
+	}
+
+	while (aux)
+	{
+		split_str[i] = aux;
+		aux = strtok(NULL, sep);
+		i++;
+	}
+	return (split_str);
 }

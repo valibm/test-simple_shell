@@ -1,10 +1,9 @@
-#include <string.h>
+#include "main.h"
 
 /**
  * main - open shell, project base
  * Return: int
  */
-
 int main(void)
 {
 	char *buffer = NULL, **args;
@@ -33,18 +32,18 @@ int main(void)
 
 		if (check_buff(buffer) == 1)
 		{
-			exit_status = 0;
+			exit_stat = 0;
 			continue;
 		}
 
 		args = split(buffer, " ");
-		args[0] = find_file(args[0]);
+		args[0] = find_path(args[0]);
 
 		if (args[0] != NULL)
-			exit_status = execute(args);
+			exit_stat = execute(args);
 		else
 			perror("Error");
 		free(args);
 	}
-	return (exit_status);
+	return (exit_stat);
 }
