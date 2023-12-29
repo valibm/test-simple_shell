@@ -7,7 +7,7 @@
  */
 char *find_path(char *command)
 {
-	char *path = _getenv("PATH"), *concatanated = NULL,*copied;
+	char *path = _getenv("PATH"), *concatanated = NULL, *copied;
 	char **splitted;
 	int i = 0, path_len = 0;
 	struct stat info;
@@ -66,7 +66,7 @@ int check_buff(char *buff)
 }
 
 /**
- * _split - It tokenizes the input string based on the specified delimiter.
+ * split - It tokenizes the input string based on the specified delimiter.
  * @str: Input string.
  * @sep: Separator.
  * Return: Tokenized string.
